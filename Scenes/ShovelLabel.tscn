@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Resources/fonts/shovelcore_Wb.fnt" type="BitmapFont" id=1]
+[ext_resource path="res://Scenes/ShovelLabel.gd" type="Script" id=2]
+
+[node name="ShovelLabel" type="Label"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -146.0
+margin_top = -20.0
+margin_right = -20.0
+margin_bottom = -4.0
+rect_scale = Vector2( 2.3, 2.3 )
+custom_fonts/font = ExtResource( 1 )
+text = "Chetris"
+align = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

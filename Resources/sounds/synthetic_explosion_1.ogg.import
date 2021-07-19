@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/synthetic_explosion_1.ogg-49feea1ce304f513141e4508e73a665f.oggstr"
+
+[deps]
+
+source_file="res://Resources/sounds/synthetic_explosion_1.ogg"
+dest_files=[ "res://.import/synthetic_explosion_1.ogg-49feea1ce304f513141e4508e73a665f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

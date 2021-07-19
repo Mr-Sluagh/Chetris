@@ -1,0 +1,15 @@
+{
+  "name" : "Chivalry",
+  "description" : "How high a score can you get when the game speeds up with every pawn captured, and slows down for every thousand points you score?",
+  "order" : 5,
+  "settings" : {
+    "rank_by_high" : "score",
+    "capture_level_up" : "Pp",
+    "points_to_level_down" : 1000.0,
+    "points_to_level_up" : 0.0,
+    "mascot" : "Queen",
+    "Bronze_threshold" : 100.0,
+    "Silver_threshold" : 200.0,
+    "Gold_threshold" : 300.0
+  }
+}

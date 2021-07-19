@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Resources/fonts/shovelcore_Bw.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://Scenes/PauseMenu.gd" type="Script" id=4]
+
+[node name="GameOver" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -107.0
+margin_top = -51.0
+margin_right = -35.0
+margin_bottom = -16.0
+rect_scale = Vector2( 3, 3 )
+custom_fonts/font = ExtResource( 3 )
+text = "Game
+Over"
+__meta__ = {
+"_edit_use_anchors_": false
+}

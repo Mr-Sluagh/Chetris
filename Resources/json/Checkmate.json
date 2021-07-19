@@ -1,0 +1,14 @@
+{
+  "name" : "Checkmate",
+  "description" : "How long can you last without capturing a king when the game speeds up whenever you fail to make a capture?",
+  "order" : 6,
+  "settings" : {
+    "king_capture_game_over" : true,
+    "no_capture_level_up" : true,
+    "rank_by_high" : "time",
+    "mascot" : "King",
+    "Bronze_threshold" : 100.0,
+    "Silver_threshold" : 200.0,
+    "Gold_threshold" : 300.0
+  }
+}

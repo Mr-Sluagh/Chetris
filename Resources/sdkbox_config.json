@@ -1,0 +1,576 @@
+{
+    "android": {
+        "GoogleAnalytics": {
+            "trackingCode": "UA-62417901-1", 
+            "anonymizeIp": true
+        }, 
+        "UnityAds": {
+            "gameId": "1493045", 
+            "testMode": true
+        }, 
+        "Firebase": {}, 
+        "SdkboxAds": {
+            "units": [
+                "AdColony", 
+                "AdMob", 
+                "Chartboost", 
+                "Appnext", 
+                "UnityAds"
+            ], 
+            "placements": [
+                {
+                    "units": [
+                        {
+                            "weight": 30, 
+                            "name": "video", 
+                            "unit": "AdColony"
+                        }, 
+                        {
+                            "weight": 20, 
+                            "name": "Default", 
+                            "unit": "Chartboost"
+                        }
+                    ], 
+                    "id": "placement-1", 
+                    "strategy": "weight"
+                }, 
+                {
+                    "units": [
+                        {
+                            "name": "v4vc", 
+                            "unit": "AdColony"
+                        }, 
+                        {
+                            "name": "Level Complete", 
+                            "unit": "Chartboost"
+                        }
+                    ], 
+                    "id": "placement-2", 
+                    "strategy": "round-robin"
+                }, 
+                {
+                    "units": [
+                        {
+                            "name": "gameover", 
+                            "unit": "AdMob"
+                        }
+                    ], 
+                    "id": "placement-admob", 
+                    "strategy": "round-robin"
+                }, 
+                {
+                    "units": [
+                        {
+                            "name": "",
+                            "unit": "UnityAds"
+                        }
+                    ], 
+                    "id": "placement-unity", 
+                    "strategy": "round-robin"
+                }
+            ]
+        }, 
+        "Appnext": {
+            "debug": true, 
+            "ads": {
+                "default": {
+                    "creative_type": "managed", 
+                    "postback": "postback", 
+                    "can_close": false, 
+                    "mute": false, 
+                    "skip_text": "Skip Text", 
+                    "cache": true, 
+                    "button_text": "Button Text", 
+                    "button_color": "#6AB344", 
+                    "type": "interstitial", 
+                    "id": "2f6850dd-190a-499d-aa50-1f4a3dd1ed5f", 
+                    "categories": "Action,Puzzle", 
+                    "autoplay": true
+                }, 
+                "fullscreen": {
+                    "postback": "postback", 
+                    "can_close": false, 
+                    "progress_color": "#ffffff", 
+                    "show_close_button": true, 
+                    "progress_type": "clock", 
+                    "cache": true, 
+                    "button_text": "Button Text", 
+                    "button_color": "#6AB344", 
+                    "kVideoLength": "short", 
+                    "type": "fullscreen", 
+                    "id": "17322152-1ef3-4e72-9677-eaf7c09f1054", 
+                    "categories": "Action,Puzzle"
+                }
+            }
+        }, 
+        "AdMob": {
+            "testdevice": "FE20924C46522E2E204587EB339897C6,kGADSimulatorID", 
+            "test": false, 
+            "ads": {
+                "interstitial": {
+                    "type": "interstitial", 
+                    "id": "ca-app-pub-3940256099942544/4411468910"
+                }, 
+                "interstitial-video": {
+                    "type": "interstitial", 
+                    "id": "ca-app-pub-3940256099942544/5135589807"
+                }, 
+                "gameover": {
+                    "type": "interstitial", 
+                    "id": "ca-app-pub-5676156151613725/8937088531"
+                }, 
+                "home": {
+                    "width": 300, 
+                    "type": "banner", 
+                    "id": "ca-app-pub-1329374026572143/2685130917", 
+                    "alignment": "bottom", 
+                    "height": 100
+                }, 
+                "rewarded": {
+                    "type": "rewarded_video", 
+                    "id": "ca-app-pub-1329374026572143/8251968111"
+                }, 
+                "banner": {
+                    "type": "banner", 
+                    "id": "ca-app-pub-3940256099942544/6300978111", 
+                    "alignment": "bottom"
+                }, 
+                "rewarded-video": {
+                    "type": "rewarded_video", 
+                    "id": "ca-app-pub-3940256099942544/1712485313"
+                }
+            }, 
+            "appid": "ca-app-pub-5676156151613725~9611219413"
+        }, 
+        "sdkboxplay": {
+            "leaderboards": [
+                {
+                    "id": "CgkI8u6vup0dEAIQAQ", 
+                    "name": "Endurance"
+                }, 
+                {
+                    "id": "CgkI8u6vup0dEAIQAg", 
+                    "name": "Sprint"
+                }, 
+                {
+                    "id": "CgkI8u6vup0dEAIQBQ", 
+                    "name": "No Quarter"
+                }, 
+                {
+                    "id": "CgkI8u6vup0dEAIQBQ", 
+                    "name": "Peacekeeper"
+                }, 
+                {
+                    "id": "CgkI8u6vup0dEAIQGQ", 
+                    "name": "Chivalry"
+                }, 
+                {
+                    "id": "CgkI8u6vup0dEAIQGg", 
+                    "name": "Checkmate"
+                }
+            ], 
+            "achievements": [
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQHQ", 
+                    "name": "Gold Pawn"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQIA", 
+                    "name": "Gold Knight"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQIw", 
+                    "name": "Gold Bishop"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQJg", 
+                    "name": "Gold Rook"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQKQ", 
+                    "name": "Gold Queen"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQLA", 
+                    "name": "Gold King"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQHA", 
+                    "name": "Silver Pawn"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQHw", 
+                    "name": "Silver Knight"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQIg", 
+                    "name": "Silver Bishop"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQJQ", 
+                    "name": "Silver Rook"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQKA", 
+                    "name": "Silver Queen"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQKw", 
+                    "name": "Silver King"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQGw", 
+                    "name": "Bronze Pawn"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQHg", 
+                    "name": "Bronze Knight"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQIQ", 
+                    "name": "Bronze Bishop"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQJA", 
+                    "name": "Bronze Rook"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQJw", 
+                    "name": "Bronze Queen"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQKg", 
+                    "name": "Bronze King"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQBw", 
+                    "name": "Played Endurance"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQCw", 
+                    "name": "Played Sprint"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQEw", 
+                    "name": "Played No Quarter"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQEw", 
+                    "name": "Played Peacekeeper"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQFw", 
+                    "name": "Played Chivalry"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQGA", 
+                    "name": "Played Checkmate"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQMQ", 
+                    "name": "Checkmate Playable"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQMA", 
+                    "name": "Chivalry Playable"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQLw", 
+                    "name": "Peacekeeper Playable"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQLg", 
+                    "name": "No Quarter Playable"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "CgkI8u6vup0dEAIQLQ", 
+                    "name": "Sprint Playable"
+                }
+            ], 
+            "connect_on_start": true, 
+            "show_achievement_notification": true, 
+            "cloud_save": true, 
+            "debug": true
+        }, 
+        "Appodeal": {
+            "app_key": "7acb75c06e543c3c49452f4acb0711377d77b63993cbad49"
+        }, 
+        "Chartboost": {
+            "ads": {
+                "Default": {
+                    "type": "interstitial"
+                }, 
+                "Level Complete": {
+                    "type": "rewarded_video"
+                }, 
+                "MoreApp": {
+                    "type": "more_app"
+                }
+            }, 
+            "id": "4f7b433509b6025804000002", 
+            "signature": "dd2d41b69ac01b80f443f5b6cf06096d457f82bd"
+        }, 
+        "AdColony": {
+            "debug": true, 
+            "id": "app185a7e71e1714831a49ec7", 
+            "ads": {
+                "v4vc": {
+                    "v4vc": true, 
+                    "pre_popup": true, 
+                    "zone": "vz1fd5a8b2bf6841a0a4b826", 
+                    "post_popup": true
+                }, 
+                "video": {
+                    "v4vc": false, 
+                    "zone": "vz06e8c32a037749699e7050"
+                }
+            }
+        }
+    }, 
+    "ios": {
+        "GoogleAnalytics": {
+            "track_init_screen": false, 
+            "trackingCode": "UA-62417901-1", 
+            "anonymizeIp": true
+        }, 
+        "UnityAds": {
+            "gameId": "1493044", 
+            "testMode": true, 
+            "ads": {
+                "banner": {
+                    "type": "banner", 
+                    "placement": "banner"
+                }
+            }
+        }, 
+        "Firebase": {}, 
+        "SdkboxAds": {
+            "debug": true, 
+            "units": [
+                "AdColony", 
+                "Fyber", 
+                "Chartboost", 
+                "AdMob", 
+                "Appnext", 
+                "UnityAds"
+            ], 
+            "placements": [
+                {
+                    "units": [
+                        {
+                            "weight": 30, 
+                            "name": "video", 
+                            "unit": "AdColony"
+                        }, 
+                        {
+                            "weight": 20, 
+                            "name": "Default", 
+                            "unit": "Chartboost"
+                        }
+                    ], 
+                    "id": "placement-1", 
+                    "strategy": "weight"
+                }, 
+                {
+                    "units": [
+                        {
+                            "name": "v4vc", 
+                            "unit": "AdColony"
+                        }, 
+                        {
+                            "name": "Level Complete", 
+                            "unit": "Chartboost"
+                        }
+                    ], 
+                    "id": "placement-2", 
+                    "strategy": "round-robin"
+                }, 
+                {
+                    "units": [
+                        {
+                            "name": "gameover", 
+                            "unit": "AdMob"
+                        }
+                    ], 
+                    "id": "placement-admob", 
+                    "strategy": "round-robin"
+                }, 
+                {
+                    "units": [
+                        {
+                            "name": "video", 
+                            "unit": "UnityAds"
+                        }
+                    ], 
+                    "id": "placement-unity", 
+                    "strategy": "round-robin"
+                }
+            ]
+        }, 
+        "Appnext": {
+            "debug": true, 
+            "ads": {
+                "default": {
+                    "cache": true, 
+                    "type": "interstitial", 
+                    "id": "6d596bc5-b4c1-48ca-be95-3758fd29a3a5"
+                }
+            }
+        }, 
+        "AdMob": {
+            "testdevice": "kGADSimulatorID", 
+            "test": true, 
+            "safearea": true, 
+            "ads": {
+                "interstitial": {
+                    "type": "interstitial", 
+                    "id": "ca-app-pub-3940256099942544/4411468910"
+                }, 
+                "interstitial-video": {
+                    "type": "interstitial", 
+                    "id": "ca-app-pub-3940256099942544/5135589807"
+                }, 
+                "gameover": {
+                    "type": "interstitial", 
+                    "id": "ca-app-pub-1329374026572143/4185543717"
+                }, 
+                "home": {
+                    "width": 300, 
+                    "type": "banner", 
+                    "id": "ca-app-pub-3940256099942544/2934735716", 
+                    "alignment": "bottom", 
+                    "height": 50
+                }, 
+                "rewarded": {
+                    "type": "rewarded_video", 
+                    "id": "ca-app-pub-1329374026572143/7991602916"
+                }, 
+                "banner": {
+                    "type": "banner", 
+                    "id": "ca-app-pub-3940256099942544/2934735716", 
+                    "alignment": "bottom"
+                }, 
+                "rewarded-video": {
+                    "type": "rewarded_video", 
+                    "id": "ca-app-pub-3940256099942544/1712485313"
+                }
+            }, 
+            "appid": "ca-app-pub-3940256099942544~1458002511"
+        }, 
+        "sdkboxplay": {
+            "leaderboards": [
+                {
+                    "id": "ldb1", 
+                    "name": "ldb1"
+                }
+            ], 
+            "achievements": [
+                {
+                    "incremental": false, 
+                    "id": "tengames", 
+                    "name": "ten-games"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "hunter", 
+                    "name": "hunter"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "craftsman", 
+                    "name": "craftsman"
+                }, 
+                {
+                    "incremental": true, 
+                    "id": "Incremental", 
+                    "name": "incremental"
+                }, 
+                {
+                    "incremental": false, 
+                    "id": "hidden_incremental", 
+                    "name": "hidden"
+                }, 
+                {
+                    "incremental": true, 
+                    "id": "flip_cards1", 
+                    "name": "flip_cards1"
+                }, 
+                {
+                    "incremental": true, 
+                    "id": "flip_cards2", 
+                    "name": "flip_cards2"
+                }, 
+                {
+                    "incremental": true, 
+                    "id": "flip_cards3", 
+                    "name": "flip_cards3"
+                }
+            ], 
+            "debug": true, 
+            "connect_on_start": false, 
+            "show_achievement_notification": true
+        }, 
+        "Appodeal": {
+            "app_key": "2cfc9cc638980eb7f5ff35d6eb63dbe404503151ccc451ed"
+        }, 
+        "Chartboost": {
+            "ads": {
+                "Default": {
+                    "type": "interstitial"
+                }, 
+                "Level Complete": {
+                    "type": "rewarded_video"
+                }, 
+                "MoreApp": {
+                    "type": "more_app"
+                }
+            }, 
+            "id": "4f21c409cd1cb2fb7000001b", 
+            "signature": "92e2de2fd7070327bdeb54c15a5295309c6fcd2d"
+        }, 
+        "AdColony": {
+            "id": "appbdee68ae27024084bb334a", 
+            "ads": {
+                "v4vc": {
+                    "v4vc": true, 
+                    "pre_popup": true, 
+                    "zone": "vzf8e4e97704c4445c87504e", 
+                    "post_popup": true
+                }, 
+                "video": {
+                    "v4vc": false, 
+                    "zone": "vzf8fb4670a60e4a139d01b5"
+                }
+            }
+        }
+    }
+}

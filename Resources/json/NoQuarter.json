@@ -1,0 +1,14 @@
+{
+  "name" : "No Quarter",
+  "description" : "How fast can you clear all black pieces or all white pieces from the board 10 times?",
+  "order" : 3,
+  "settings" : {
+    "win_on_clear_count" : 10,
+    "rank_by_low" : "time",
+    "lose_on_overflow" : true,
+    "mascot" : "Bishop",
+    "Bronze_threshold" : 300.0,
+    "Silver_threshold" : 200.0,
+    "Gold_threshold" : 100.0
+  }
+}

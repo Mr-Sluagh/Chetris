@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scenes/ShovelButton.gd" type="Script" id=1]
+[ext_resource path="res://Resources/fonts/shovelcore_Wb.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://Resources/fonts/shovelcore_Bw.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://Scenes/PauseMenu.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[node name="PauseMenu" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -108.0
+margin_top = -98.0
+margin_right = -7.62939e-06
+margin_bottom = -82.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = ExtResource( 3 )
+text = "Paused"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resume" type="Button" parent="."]
+margin_left = -90.0
+margin_top = -14.0
+margin_right = 30.0
+margin_bottom = 8.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = ExtResource( 2 )
+text = "Resume"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main Menu" type="Button" parent="."]
+margin_left = -122.0
+margin_top = 60.0
+margin_right = 40.0
+margin_bottom = 82.0
+rect_scale = Vector2( 1.5, 1.5 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+custom_fonts/font = ExtResource( 2 )
+text = "Main Menu"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="Main Menu" to="." method="_on_Main_Menu_pressed"]

@@ -1,0 +1,13 @@
+{
+  "name" : "Endurance",
+  "description" : "Play for the highest score in an infinite amount of time!",
+  "order" : 1,
+  "settings" : {
+    "rank_by_high" : "score",
+    "capture_level_up" : "kK",
+    "mascot" : "Pawn",
+    "Bronze_threshold" : 100.0,
+    "Silver_threshold" : 200.0,
+    "Gold_threshold" : 300.0
+  }
+}

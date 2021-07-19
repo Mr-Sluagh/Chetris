@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Howard Dean Screaming.ogg-137c6b5bbd18547aff660b4ddc547a6d.oggstr"
+
+[deps]
+
+source_file="res://Resources/sounds/Howard Dean Screaming.ogg"
+dest_files=[ "res://.import/Howard Dean Screaming.ogg-137c6b5bbd18547aff660b4ddc547a6d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

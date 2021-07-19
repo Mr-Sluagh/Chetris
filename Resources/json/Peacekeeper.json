@@ -1,0 +1,15 @@
+{
+  "name" : "Peacekeeper",
+  "description" : "How low a score can you get in two minutes when the game speeds up with every capture?",
+  "order" : 4,
+  "settings" : {
+    "capture_level_up" : "kqnbrpKQNBRP",
+    "rank_by_low" : "score",
+    "time_limit" : "120",
+    "lose_on_overflow" : true,
+    "mascot" : "Rook",
+    "Bronze_threshold" : 300.0,
+    "Silver_threshold" : 200.0,
+    "Gold_threshold" : 100.0
+  }
+}

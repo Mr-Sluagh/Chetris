@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Resources/fonts/USSRSTENCIL.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Resources/fonts/ledfont-sharp-Regular.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/SmallMeter.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Name" type="Label" parent="."]
+margin_left = -53.0
+margin_top = -10.0
+margin_right = -14.0
+margin_bottom = 9.0
+custom_fonts/font = SubResource( 1 )
+text = "[name]"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Readout" type="Label" parent="."]
+margin_left = 11.0362
+margin_top = -9.00678
+margin_right = 51.0362
+margin_bottom = 9.99322
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0.901961, 0.0156863, 1 )
+text = "000"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

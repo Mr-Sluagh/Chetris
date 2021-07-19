@@ -1,0 +1,15 @@
+{
+  "name" : "Sprint",
+  "description" : "Play for the highest score in two minutes!",
+  "order" : 2,
+  "settings" : {
+    "time_limit" : 120,
+    "rank_by_high" : "score",
+    "lose_on_overflow" : true,
+    "capture_level_up" : "kK",
+    "mascot" : "Knight",
+    "Bronze_threshold" : 100.0,
+    "Silver_threshold" : 200.0,
+    "Gold_threshold" : 300.0
+  }
+}
