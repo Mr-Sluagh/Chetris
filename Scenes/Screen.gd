@@ -28,7 +28,7 @@ func white_count():
 func is_king_exposed():
 	
 	var board = find_node("Board")
-	board.is_king_exposed()
+	return board.is_king_exposed()
 
 func _on_PlayPause_play():
 	var view = find_node("Viewport")

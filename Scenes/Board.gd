@@ -71,7 +71,8 @@ func is_square_open(c, r):
 
 func is_king_exposed():
 	
-	return not black_count or not white_count
+	var ret = not black_count and black_captured
+	return ret or not white_count and white_captured
 
 func draft():
 	

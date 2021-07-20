@@ -57,6 +57,8 @@ func draft():
 		
 		if $Screen.is_king_exposed():
 			
+			print("Main.draft(): king exposed")
+			
 			var parity = 0
 			ret = 'K'
 			
@@ -72,6 +74,8 @@ func draft():
 					nexts[n].bad_on()
 			
 		else:
+			
+			print("Main.draft(): no king exposed")
 			
 			next.good_on()
 			ret = next.id
