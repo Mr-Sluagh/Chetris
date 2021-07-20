@@ -106,8 +106,8 @@ texture = ExtResource( 14 )
 id = "r"
 key = Vector3( 1, 1, 1 )
 
-[connection signal="pause" from="PlayPause" to="." method="_on_PlayPause_pause"]
 [connection signal="pause" from="PlayPause" to="Screen" method="_on_PlayPause_pause"]
-[connection signal="play" from="PlayPause" to="." method="_on_PlayPause_play"]
+[connection signal="pause" from="PlayPause" to="." method="_on_PlayPause_pause"]
 [connection signal="play" from="PlayPause" to="Screen" method="_on_PlayPause_play"]
+[connection signal="play" from="PlayPause" to="." method="_on_PlayPause_play"]
 [connection signal="toggled" from="PlayPause" to="PlayPause" method="_on_PlayPause_toggled"]

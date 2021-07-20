@@ -157,9 +157,9 @@ func _on_Piece_captured(score):
 	
 	$Score.set_score(current_score)
 	$Combo.set_value(current_combo)
+	$Level.set_value(current_level)
 	
 	last_score = score
-
 
 func _on_Piece_game_over():
 	
