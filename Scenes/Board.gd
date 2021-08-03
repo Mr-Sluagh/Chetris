@@ -10,6 +10,7 @@ var GameOver = load("res://Scenes/GameOver.tscn")
 var game_on = false
 var white_captured = false
 var black_captured = false
+var shall_draft = false
 export var ROWS = 8
 export var COLS = 8
 onready var WIDTH = COLS * cell_size.x
@@ -104,7 +105,7 @@ func play():
 	
 	if not draft_count:
 		
-		draft()
+		shall_draft = true
 		
 	for child in get_children():
 	
@@ -136,7 +137,11 @@ func _exit_tree():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	pass
+	if shall_draft:
+		
+		draft()
+		
+	shall_draft = false
 
 func pause():
 	

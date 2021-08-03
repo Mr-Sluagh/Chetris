@@ -1,6 +1,5 @@
 extends Node2D
 
-
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -14,6 +13,9 @@ var current_second := 0.0
 export var cursor := 0
 export var inc := -1
 
+enum State {TITLE, PLAY, PAUSE, WAIT, OVER}
+var state = State.TITLE
+
 onready var nexts = [
 	$NextWhiteRook,
 	$NextBlackKnight,
@@ -24,6 +26,56 @@ onready var nexts = [
 	$NextWhiteKnight,
 	$NextBlackRook
 	]
+
+func to_title():
+	
+	pass
+	
+func to_play():
+	
+	assert(state == State.WAIT)
+	clock_on = true
+	
+func to_pause():
+	
+	assert(state == State.PLAY or state == State.WAIT)
+	
+	clock_on = false
+	$Screen.pause()
+	
+func to_wait():
+	
+	$Screen.play()
+	
+func to_over():
+	
+	assert(state == State.PLAY)
+
+func change_state(to):
+	
+	match to:
+		
+		State.TITLE:
+			
+			to_title()
+			
+		State.PLAY:
+			
+			to_play()
+			
+		State.PAUSE:
+			
+			to_pause()
+			
+		State.WAIT:
+			
+			to_wait()
+			
+		State.OVER:
+			
+			to_over()
+	
+	state = to
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -45,6 +97,8 @@ func _ready():
 	$Combo.set_value(0)
 	$Score.set_score(0)
 	$Time.set_time(0)
+	
+	state = State.TITLE
 
 func draft():
 	
@@ -182,8 +236,26 @@ func _process(delta):
 
 func _on_PlayPause_pause():
 	
-	clock_on = false
+	change_state(State.PAUSE)
 
-func _on_Sc_play():
+func _on_Screen_game_over():
 	
-	clock_on = true
+	clock_on = false
+	$PlayPause.pressed = false
+
+func _on_Screen_resume():
+	
+	change_state(State.PLAY)
+
+func _on_Off_pressed():
+	
+	get_tree().quit()
+
+
+func _on_Reset_pressed():
+	pass # Replace with function body.
+
+
+func _on_PlayPause_play():
+	
+	change_state(State.WAIT)

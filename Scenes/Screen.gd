@@ -1,9 +1,8 @@
 extends Node2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+signal game_over
+signal resume
 
 
 # Called when the node enters the scene tree for the first time.
@@ -30,11 +29,18 @@ func is_king_exposed():
 	var board = find_node("Board")
 	return board.is_king_exposed()
 
-func _on_PlayPause_play():
+func play():
 	var view = find_node("Viewport")
 	view.play()
 
 
-func _on_PlayPause_pause():
+func pause():
 	var view = find_node("Viewport")
 	view.pause()
+
+func _on_Board_game_over():
+	emit_signal("game_over")
+
+
+func _on_Viewport_resume():
+	emit_signal("resume")

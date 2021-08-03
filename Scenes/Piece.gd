@@ -231,7 +231,7 @@ func land():
 			
 			parent.white_count += 1
 
-	parent.draft()
+	parent.shall_draft = true
 
 func descend():
 	

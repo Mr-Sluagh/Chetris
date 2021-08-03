@@ -1,7 +1,9 @@
 extends Viewport
 
+signal resume
 
-var Countdown = load("res://Scenes/Countdown.tscn")
+var count = -1
+onready var timer := get_tree().create_timer(0)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -10,37 +12,40 @@ func _ready():
 	pass
 
 func pause():
+
+	count = -1
+	timer.time_left = 0
 	
-	var countdown = get_node("Countdown")
-	
-	if countdown:
-		
-		countdown.queue_free()
-		
 	$Title.text = "Paused"
 	$Title.visible = true
-	
 	$Board.pause()
 
 func play():
 	
 	print("board play pressed")
 
-	var count = 3
+	count = 3
 	
-	while count:
+	while count > 0:
 		
 		$Title.text = str(count)
-		yield(get_tree().create_timer(1), "timeout")
+		timer = get_tree().create_timer(1)
+		yield(timer, "timeout")
 		count -= 1
+
+	if count < 0:
+		
+		return
 
 	$Title.visible = false
 	$Board.play()
-
+	emit_signal("resume")
+"""
 func _on_Countdown_done():
 	
+	emit_signal("resume")
 	$Board.play()
-			
+"""		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

@@ -17,7 +17,7 @@
 [ext_resource path="res://Resources/res/w-bishop.png" type="Texture" id=15]
 [ext_resource path="res://Resources/res/w-queen.png" type="Texture" id=16]
 [ext_resource path="res://Resources/res/b-queen.png" type="Texture" id=17]
-[ext_resource path="res://Scenes/Screen.gd" type="Script" id=18]
+[ext_resource path="res://Scenes/ArcadeScreenplay.tscn" type="PackedScene" id=19]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
@@ -28,7 +28,6 @@ texture = ExtResource( 5 )
 
 [node name="Screen" parent="." instance=ExtResource( 1 )]
 position = Vector2( 9.76758, 163.157 )
-script = ExtResource( 18 )
 
 [node name="Time" parent="." instance=ExtResource( 3 )]
 position = Vector2( 297.419, 119 )
@@ -106,8 +105,32 @@ texture = ExtResource( 14 )
 id = "r"
 key = Vector3( 1, 1, 1 )
 
-[connection signal="pause" from="PlayPause" to="Screen" method="_on_PlayPause_pause"]
+[node name="Screenplay" parent="." instance=ExtResource( 19 )]
+
+[node name="Off" type="Button" parent="."]
+margin_left = 8.02292
+margin_top = 20.7652
+margin_right = 45.0229
+margin_bottom = 40.7652
+text = "OFF"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reset" type="Button" parent="."]
+margin_left = 264.284
+margin_top = 20.2933
+margin_right = 312.284
+margin_bottom = 40.2933
+text = "RESET"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="game_over" from="Screen" to="." method="_on_Screen_game_over"]
+[connection signal="resume" from="Screen" to="." method="_on_Screen_resume"]
 [connection signal="pause" from="PlayPause" to="." method="_on_PlayPause_pause"]
-[connection signal="play" from="PlayPause" to="Screen" method="_on_PlayPause_play"]
 [connection signal="play" from="PlayPause" to="." method="_on_PlayPause_play"]
 [connection signal="toggled" from="PlayPause" to="PlayPause" method="_on_PlayPause_toggled"]
+[connection signal="pressed" from="Off" to="." method="_on_Off_pressed"]
+[connection signal="pressed" from="Reset" to="." method="_on_Reset_pressed"]
