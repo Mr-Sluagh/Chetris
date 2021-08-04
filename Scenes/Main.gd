@@ -27,14 +27,28 @@ onready var nexts = [
 	$NextBlackRook
 	]
 
+func _init():
+	
+	current_time = 0.0
+	current_score = 0
+	current_level = 0
+	current_combo = 0
+	last_score = 0
+	clock_on = false
+	current_second = 0.0
+	cursor = 0
+	inc = -1
+	
 func to_title():
 	
-	pass
-	
+	_init()
+	_ready()
+		
 func to_play():
 	
 	assert(state == State.WAIT)
 	clock_on = true
+	$Board.visible = true
 	
 func to_pause():
 	
@@ -97,8 +111,6 @@ func _ready():
 	$Combo.set_value(0)
 	$Score.set_score(0)
 	$Time.set_time(0)
-	
-	state = State.TITLE
 
 func draft():
 	
@@ -195,7 +207,7 @@ func _on_Piece_start_game():
 func speed():
 	
 	return 1.0 - current_level / 1000
-	
+
 func _on_Piece_captured(score):
 	
 	if score:
@@ -253,7 +265,8 @@ func _on_Off_pressed():
 
 
 func _on_Reset_pressed():
-	pass # Replace with function body.
+	
+	change_state(State.TITLE)
 
 
 func _on_PlayPause_play():

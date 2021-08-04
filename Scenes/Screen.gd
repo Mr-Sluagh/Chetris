@@ -14,6 +14,10 @@ func _ready():
 #func _process(delta):
 #	pass
 
+func reset():
+	
+	pass
+
 func black_count():
 	
 	var board = find_node("Board")

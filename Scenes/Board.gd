@@ -7,20 +7,36 @@ extends TileMap
 var Piece = load("res://Scenes/Piece.tscn")
 var Square = load("res://Scenes/Square.tscn")
 var GameOver = load("res://Scenes/GameOver.tscn")
-var game_on = false
-var white_captured = false
-var black_captured = false
-var shall_draft = false
-export var ROWS = 8
-export var COLS = 8
-onready var WIDTH = COLS * cell_size.x
-onready var HEIGHT = ROWS * cell_size.y
-onready var BASE_CHILDREN = get_child_count()
-onready var draft_count = 0
-onready var white_count = 0
-onready var black_count = 0
+var game_on := false
+var white_captured := false
+var black_captured := false
+var draft_delay := INF
+export var ROWS := 8
+export var COLS := 8
+onready var WIDTH := COLS * cell_size.x
+onready var HEIGHT := ROWS * cell_size.y
+onready var BASE_CHILDREN := get_child_count()
+onready var draft_count := 0
+onready var white_count := 0
+onready var black_count := 0
 
 signal game_over
+
+func queue_draft(id, delay):
+	
+	var ID = id.to_lower()
+	
+	if ID != "k":
+	
+		if ID == id:
+			
+			black_count += 1
+			
+		else:
+			
+			white_count += 1
+			
+	draft_delay = delay
 
 func get_square(c, r):
 	
@@ -105,11 +121,11 @@ func play():
 	
 	if not draft_count:
 		
-		shall_draft = true
+		draft_delay = 0.0
 		
 	for child in get_children():
 	
-		if child.name == "Piece":
+		if child.name.find("Piece") >= 0:
 			
 			child.visible = true
 
@@ -137,17 +153,24 @@ func _exit_tree():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	if shall_draft:
+	if draft_delay == INF:
 		
+		pass
+	
+	elif draft_delay <= 0.0 and game_on:
+		
+		draft_delay = INF
 		draft()
 		
-	shall_draft = false
+	else:
+		
+		draft_delay -= delta
 
 func pause():
 	
 	game_on = false
 	for child in get_children():
 		
-		if child.name == "Piece":
+		if child.name.find("Piece") >= 0:
 			
 			child.visible = false

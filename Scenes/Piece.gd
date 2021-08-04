@@ -207,31 +207,14 @@ func update_speed():
 
 func land():
 	
-	if not is_processing():
-	
-		return
+	var parent = get_parent()
 		
 	snap()
 	capture()
 	set_process(false)
 	update_speed()
 	
-	yield(get_tree().create_timer(fall_delay), "timeout")
-	
-	var parent = get_parent()
-	var ID = id.to_lower()
-	
-	if ID != "k":
-	
-		if ID == id:
-			
-			parent.black_count += 1
-			
-		else:
-			
-			parent.white_count += 1
-
-	parent.shall_draft = true
+	parent.queue_draft(id, fall_delay)
 
 func descend():
 	

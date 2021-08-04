@@ -2,7 +2,7 @@ extends Label
 
 
 export var wait := 1
-var alternate = false
+var alternate := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
