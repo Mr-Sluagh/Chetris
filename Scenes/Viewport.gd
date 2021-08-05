@@ -5,11 +5,22 @@ signal resume
 var count = -1
 onready var timer := get_tree().create_timer(0)
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	pass
+	$Background.visible = true
+	$Board.visible = false
+	$Title.visible = false
+	$Board.clear()
+
+func _init():
+	
+	count = -1
+
+func clear():
+	
+	_init()
+	_ready()
 
 func pause():
 
@@ -40,18 +51,20 @@ func play():
 	$Title.visible = false
 	$Board.play()
 	emit_signal("resume")
-"""
-func _on_Countdown_done():
-	
-	emit_signal("resume")
-	$Board.play()
-"""		
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
 
 func _on_Board_game_over():
 	
 	$Title.text = "Game\nOver"
 	$Title.visible = true
+
+func _on_Screen_show_title(title):
+	
+	$Title.text = title
+	$Title.visible = true
+
+func _on_Screen_show_board():
+	$Board.visible = true

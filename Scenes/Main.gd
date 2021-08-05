@@ -48,7 +48,6 @@ func to_play():
 	
 	assert(state == State.WAIT)
 	clock_on = true
-	$Board.visible = true
 	
 func to_pause():
 	
@@ -106,11 +105,21 @@ func _ready():
 	})
 
 	$Screen.position.x = 0
+	$Screen.clear()
+	$Screen.show_board()
+	$Screen.show_title("Chetris")
 	$Level.init("Level", 0)
 	$Combo.init("Combo", 0)
 	$Combo.set_value(0)
 	$Score.set_score(0)
 	$Time.set_time(0)
+	$PlayPause.disabled = true
+	$PlayPause.pressed = false
+	$PlayPause.disabled = false
+	
+	for next in nexts:
+		
+		next.off()
 
 func draft():
 	

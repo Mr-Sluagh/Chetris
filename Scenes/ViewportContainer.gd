@@ -14,6 +14,9 @@ func _ready():
 	view.position.y = vis.size.y * 0.0
 	set_position(view.position)
 
+func clear():
+	
+	$Viewport.clear()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

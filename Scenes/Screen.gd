@@ -3,6 +3,8 @@ extends Node2D
 
 signal game_over
 signal resume
+signal show_title(title)
+signal show_board
 
 
 # Called when the node enters the scene tree for the first time.
@@ -14,9 +16,17 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func reset():
+func show_board():
 	
-	pass
+	emit_signal("show_board")
+
+func show_title(title = ""):
+	
+	emit_signal("show_title", title)
+
+func clear():
+	
+	$ViewportContainer.clear()
 
 func black_count():
 	

@@ -13,6 +13,10 @@ func _ready():
 
 func _on_PlayPause_toggled(button_pressed):
 	
+	if disabled:
+		
+		return
+	
 	if button_pressed:
 		
 		emit_signal("play")

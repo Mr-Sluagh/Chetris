@@ -22,6 +22,18 @@ onready var black_count := 0
 
 signal game_over
 
+func first_child_index_after_squares():
+	
+	return ROWS * COLS + BASE_CHILDREN
+
+func clear():
+	
+	_init()
+	
+	for child in range(first_child_index_after_squares(), get_child_count()):
+		
+		get_children()[child].queue_free()
+
 func queue_draft(id, delay):
 	
 	var ID = id.to_lower()
@@ -42,7 +54,7 @@ func get_square(c, r):
 	
 	var index = c * ROWS + r + BASE_CHILDREN
 	
-	if index < 0 or index >= ROWS * COLS + BASE_CHILDREN:
+	if index < 0 or index >= first_child_index_after_squares():
 		
 		return null
 	
@@ -129,11 +141,16 @@ func play():
 			
 			child.visible = true
 
+func _init():
+	
+	draft_delay = INF
+	draft_count = 0
+	game_on = false
+	white_captured = false
+	black_captured = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	print("board ready, name = " + name)
-	assert(name == "Board")
 	
 	for c in range(COLS):
 		
@@ -144,8 +161,6 @@ func _ready():
 			square.position.y = r * cell_size.y - HEIGHT * 0.5
 			square.position += cell_size * 0.5
 			self.add_child(square)
-	
-	#play()
 
 func _exit_tree():
 	print("board exit")
