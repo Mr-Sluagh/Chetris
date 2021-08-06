@@ -35,5 +35,6 @@ position = Vector2( 150, 150 )
 [connection signal="show_board" from="." to="ViewportContainer/Viewport" method="_on_Screen_show_board"]
 [connection signal="show_title" from="." to="ViewportContainer/Viewport" method="_on_Screen_show_title"]
 [connection signal="resume" from="ViewportContainer/Viewport" to="." method="_on_Viewport_resume"]
-[connection signal="game_over" from="ViewportContainer/Viewport/Board" to="." method="_on_Board_game_over"]
 [connection signal="game_over" from="ViewportContainer/Viewport/Board" to="ViewportContainer/Viewport" method="_on_Board_game_over"]
+[connection signal="game_over" from="ViewportContainer/Viewport/Board" to="." method="_on_Board_game_over"]
+[connection signal="landed" from="ViewportContainer/Viewport/Board" to="." method="_on_Board_landed"]

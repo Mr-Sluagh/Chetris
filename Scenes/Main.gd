@@ -3,15 +3,17 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-export var current_time := 0.0
-export var current_score := 0
-export var current_level := 0
-export var current_combo := 0
-export var last_score := 0
-export var clock_on := false
+var current_time := 0.0
+var current_score := 0
+var current_level := 0
+var current_combo := 0
+var last_score := 0
+var clock_on := false
 var current_second := 0.0
-export var cursor := 0
-export var inc := -1
+var cursor := 0
+var inc := -1
+var turn = 0
+var draft_delay = INF
 
 enum State {TITLE, PLAY, PAUSE, WAIT, OVER}
 var state = State.TITLE
@@ -26,6 +28,8 @@ onready var nexts = [
 	$NextWhiteKnight,
 	$NextBlackRook
 	]
+
+var next = 'P'
 
 func _init():
 	
@@ -48,6 +52,11 @@ func to_play():
 	
 	assert(state == State.WAIT)
 	clock_on = true
+	$Screen.play()
+	
+	if current_time == 0.0:
+		
+		draft()
 	
 func to_pause():
 	
@@ -58,7 +67,7 @@ func to_pause():
 	
 func to_wait():
 	
-	$Screen.play()
+	$Screen.wait()
 	
 func to_over():
 	
@@ -121,12 +130,16 @@ func _ready():
 		
 		next.off()
 
-func draft():
+func landed(id, score):
 	
 	var black_count = $Screen.black_count()
 	var white_count = $Screen.white_count()
 	var ret = 'P'
 	var next = nexts[cursor]
+	
+	turn += 1
+	update_meters(score)
+	draft_delay = speed()
 	
 	if last_score:
 		
@@ -135,12 +148,12 @@ func draft():
 			print("Main.draft(): king exposed")
 			
 			var parity = 0
-			ret = 'K'
+			next = 'K'
 			
 			if not black_count:
 				
 				parity = 1
-				ret = 'k'
+				next = 'k'
 				
 			for n in range(len(nexts)):
 				
@@ -153,7 +166,7 @@ func draft():
 			print("Main.draft(): no king exposed")
 			
 			next.good_on()
-			ret = next.id
+			next = next.id
 		
 	else:
 		
@@ -161,10 +174,12 @@ func draft():
 
 		if cursor % 2:
 		
-			ret = 'p'
-		
-	return ret
-	
+			next = 'p'
+
+func draft():
+			
+	$Screen.draft(next, cursor)
+
 func wrap_cursor():
 	
 	while cursor >= len(nexts):
@@ -191,7 +206,7 @@ func _on_Piece_start_game():
 	var black_count = $Screen.black_count()
 	var white_count = $Screen.white_count()
 	
-	if black_count > white_count:
+	if turn % 2:
 		
 		inc = -1
 		
@@ -217,7 +232,7 @@ func speed():
 	
 	return 1.0 - current_level / 1000
 
-func _on_Piece_captured(score):
+func update_meters(score):
 	
 	if score:
 		
@@ -254,6 +269,18 @@ func _process(delta):
 			
 			$Time.set_time(int(current_time))
 			current_second -= 1.0
+			
+		if draft_delay != INF:
+			
+			if draft_delay > 0.0:
+			
+				draft_delay -= delta
+			
+			else:
+				
+				draft()
+				draft_delay = INF
+			
 
 func _on_PlayPause_pause():
 	
@@ -281,3 +308,8 @@ func _on_Reset_pressed():
 func _on_PlayPause_play():
 	
 	change_state(State.WAIT)
+
+
+func _on_Screen_landed(id, score):
+	
+	landed(id, score)

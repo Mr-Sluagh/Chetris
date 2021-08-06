@@ -21,6 +21,7 @@ onready var white_count := 0
 onready var black_count := 0
 
 signal game_over
+signal landed(id, score)
 
 func first_child_index_after_squares():
 	
@@ -34,7 +35,7 @@ func clear():
 		
 		get_children()[child].queue_free()
 
-func queue_draft(id, delay):
+func landed(id, score):
 	
 	var ID = id.to_lower()
 	
@@ -47,6 +48,10 @@ func queue_draft(id, delay):
 		else:
 			
 			white_count += 1
+			
+	emit_signal("landed", id, score)
+
+func queue_draft(id, delay):
 			
 	draft_delay = delay
 
@@ -103,22 +108,10 @@ func is_king_exposed():
 	var ret = not black_count and black_captured
 	return ret or not white_count and white_captured
 
-func draft():
+func draft(id, column):
 	
-	if not game_on:
-		
-		return
-	
-	var main = get_tree().get_root().find_node("Main", true, false)
-	
-	if not main:
-		
-		print("Board.draft(): Main scene not found")
-		assert(false)
-	
-	var id = main.draft()
 	var player = Piece.instance()
-	player.init(id, main.cursor, 0)
+	player.init(id, column , 0)
 	self.add_child(player)
 	draft_count += 1
 
@@ -130,10 +123,6 @@ func game_over():
 func play():
 	
 	game_on = true
-	
-	if not draft_count:
-		
-		draft_delay = 0.0
 		
 	for child in get_children():
 	
@@ -175,7 +164,7 @@ func _process(delta):
 	elif draft_delay <= 0.0 and game_on:
 		
 		draft_delay = INF
-		draft()
+		#draft()
 		
 	else:
 		

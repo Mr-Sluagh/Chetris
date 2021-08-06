@@ -33,7 +33,10 @@ func pause():
 
 func play():
 	
-	print("board play pressed")
+	$Title.visible = false
+	$Board.play()
+
+func wait():
 
 	count = 3
 	
@@ -47,9 +50,7 @@ func play():
 	if count < 0:
 		
 		return
-
-	$Title.visible = false
-	$Board.play()
+		
 	emit_signal("resume")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

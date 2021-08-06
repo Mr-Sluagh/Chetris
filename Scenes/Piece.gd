@@ -148,7 +148,7 @@ func capture():
 		count += 1
 	
 	score *= count
-	emit_signal("captured", score)
+	return score
 
 func be_captured():
 	
@@ -199,22 +199,37 @@ func snap():
 	destination = parent.square_position(column, row)
 	position = destination
 
-func update_speed():
+func promote():
 	
-	var main = get_tree().get_root().find_node("Main", true, false)
-	fall_delay = main.speed()
-	print(fall_delay)
+	if id.to_lower() != 'p':
+		
+		return
+		
+	var from := "RnBqQbNr"
+	var to := from[column]
+	
+	if id == id.to_upper():
+		
+		if not row:
+			
+			id = to
+			
+	elif row == 7:
+		
+		id = to
+			
+	$AnimatedSprite.init(id)
 
 func land():
 	
 	var parent = get_parent()
 		
 	snap()
-	capture()
+	promote()
+	var score = capture()
 	set_process(false)
-	update_speed()
 	
-	parent.queue_draft(id, fall_delay)
+	parent.landed(id, score)
 
 func descend():
 	

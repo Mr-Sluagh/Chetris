@@ -128,6 +128,7 @@ __meta__ = {
 }
 
 [connection signal="game_over" from="Screen" to="." method="_on_Screen_game_over"]
+[connection signal="landed" from="Screen" to="." method="_on_Screen_landed"]
 [connection signal="resume" from="Screen" to="." method="_on_Screen_resume"]
 [connection signal="pause" from="PlayPause" to="." method="_on_PlayPause_pause"]
 [connection signal="play" from="PlayPause" to="." method="_on_PlayPause_play"]

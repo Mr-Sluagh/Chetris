@@ -4,6 +4,7 @@ extends Node2D
 signal game_over
 signal resume
 signal show_title(title)
+signal landed(id, score)
 signal show_board
 
 
@@ -43,11 +44,14 @@ func is_king_exposed():
 	var board = find_node("Board")
 	return board.is_king_exposed()
 
+func wait():
+	var view = find_node("Viewport")
+	view.wait()
+
 func play():
 	var view = find_node("Viewport")
 	view.play()
-
-
+	
 func pause():
 	var view = find_node("Viewport")
 	view.pause()
@@ -55,6 +59,14 @@ func pause():
 func _on_Board_game_over():
 	emit_signal("game_over")
 
-
 func _on_Viewport_resume():
 	emit_signal("resume")
+
+
+func draft(id, column):
+	
+	$ViewportContainer/Viewport/Board.draft(id, column)
+
+func _on_Board_landed(id, score):
+	
+	emit_signal("landed", id, score)
