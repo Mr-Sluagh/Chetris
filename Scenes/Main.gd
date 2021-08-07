@@ -47,6 +47,7 @@ func to_title():
 	
 	_init()
 	_ready()
+	next_off()
 		
 func to_play():
 	
@@ -72,6 +73,11 @@ func to_wait():
 func to_over():
 	
 	assert(state == State.PLAY)
+	clock_on = false
+	$PlayPause.disabled = true
+	$PlayPause.pressed = false
+	$PlayPause.disabled = false
+	$Screen.end_game()
 
 func change_state(to):
 	
@@ -99,6 +105,12 @@ func change_state(to):
 	
 	state = to
 
+func next_off():
+	
+	for next in nexts:
+		
+		next.off()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -125,10 +137,6 @@ func _ready():
 	$PlayPause.disabled = true
 	$PlayPause.pressed = false
 	$PlayPause.disabled = false
-	
-	for next in nexts:
-		
-		next.off()
 
 func landed(id, score):
 	
@@ -177,8 +185,33 @@ func landed(id, score):
 			next = 'p'
 
 func draft():
-			
+	
+	next_off()
 	$Screen.draft(next, cursor)
+	
+	var black_count = $Screen.black_count()
+	var white_count = $Screen.white_count()
+	
+	if turn % 2:
+		
+		inc = -1
+		
+	else:
+		
+		inc = 1
+	
+	if inc > 0:
+		
+		cursor = 0
+		
+	elif inc < 0:
+		
+		cursor = len(nexts) - 1
+	
+	cursor += current_combo * inc
+	wrap_cursor()
+	
+	nexts[cursor].may_on()
 
 func wrap_cursor():
 	
@@ -250,12 +283,6 @@ func update_meters(score):
 	$Level.set_value(current_level)
 	
 	last_score = score
-
-func _on_Piece_game_over():
-	
-	clock_on = false
-	SilentWolf.Scores.persist_score("test", current_score) 
-	get_tree().change_scene("res://Plugins/silent_wolf/Scores/Leaderboard.tscn")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -288,8 +315,7 @@ func _on_PlayPause_pause():
 
 func _on_Screen_game_over():
 	
-	clock_on = false
-	$PlayPause.pressed = false
+	change_state(State.OVER)
 
 func _on_Screen_resume():
 	
@@ -307,7 +333,13 @@ func _on_Reset_pressed():
 
 func _on_PlayPause_play():
 	
-	change_state(State.WAIT)
+	if state == State.OVER:
+		
+		change_state(State.TITLE)
+	
+	else:
+	
+		change_state(State.WAIT)
 
 
 func _on_Screen_landed(id, score):

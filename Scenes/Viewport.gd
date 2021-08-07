@@ -57,10 +57,11 @@ func wait():
 #func _process(delta):
 #	pass
 
-func _on_Board_game_over():
+func end_game():
 	
 	$Title.text = "Game\nOver"
 	$Title.visible = true
+	$Board.end_game()
 
 func _on_Screen_show_title(title):
 	

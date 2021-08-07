@@ -110,15 +110,26 @@ func is_king_exposed():
 
 func draft(id, column):
 	
-	var player = Piece.instance()
-	player.init(id, column , 0)
-	self.add_child(player)
-	draft_count += 1
+	var on = on_square(column, 0)
+
+	if on:
+		
+		on.game_over()
+	
+	else:
+	
+		var player = Piece.instance()
+		player.init(id, column, 0)
+		self.add_child(player)
+		draft_count += 1
 
 func game_over():
 	
-	game_on = false
 	emit_signal("game_over")
+
+func end_game():
+	
+	game_on = false
 
 func play():
 	

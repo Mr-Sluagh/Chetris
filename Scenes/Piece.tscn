@@ -55,11 +55,11 @@ atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 5 )
+atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 9 )
+atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=10]
@@ -103,27 +103,27 @@ atlas = ExtResource( 15 )
 region = Rect2( 288, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 13 )
-region = Rect2( 0, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 14 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=24]
+[sub_resource type="AtlasTexture" id=21]
 atlas = ExtResource( 11 )
 region = Rect2( 0, 0, 16, 16 )
 
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 16, 16 )
+
 [sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 6 )
+atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 16, 16 )
 
 [sub_resource type="SpriteFrames" id=26]
@@ -150,12 +150,12 @@ animations = [ {
 }, {
 "frames": [ SubResource( 8 ) ],
 "loop": true,
-"name": "B",
+"name": "K",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 9 ) ],
 "loop": true,
-"name": "p",
+"name": "N",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
@@ -165,32 +165,32 @@ animations = [ {
 }, {
 "frames": [ SubResource( 20 ) ],
 "loop": true,
-"name": "P",
+"name": "R",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 21 ) ],
 "loop": true,
-"name": "Q",
+"name": "q",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 22 ) ],
 "loop": true,
-"name": "R",
+"name": "Q",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 23 ) ],
 "loop": true,
-"name": "K",
+"name": "P",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 24 ) ],
 "loop": true,
-"name": "q",
+"name": "p",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 25 ) ],
 "loop": true,
-"name": "N",
+"name": "B",
 "speed": 5.0
 } ]
 
@@ -205,10 +205,8 @@ pause_mode = 2
 material = SubResource( 3 )
 frames = SubResource( 26 )
 animation = "explode"
-frame = 2
+frame = 1
 playing = true
 script = ExtResource( 2 )
-
-[node name="Tween" type="Tween" parent="AnimatedSprite"]
 
 [connection signal="game_over" from="." to="AnimatedSprite" method="_on_Piece_game_over"]

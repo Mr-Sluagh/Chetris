@@ -248,10 +248,11 @@ func game_over():
 	collision.set_disabled(true)
 	
 	set_process(false)
-	emit_signal("game_over")
 	parent.game_over()
 	destination = parent.square_position(column, row)
 	position = destination	
+	
+	$AnimatedSprite.play("explode")
 
 func enter_board():
 	
@@ -300,11 +301,7 @@ func init(ID, c, r):
 func _ready():
 	
 	var Main = get_tree().get_root().find_node("Main",true,false)
-	self.connect("start_game", Main, "_on_Piece_start_game")
 	self.connect("moved", Main, "_on_Piece_moved")
-	self.connect("captured", Main, "_on_Piece_captured")
-	self.connect("game_over", Main, "_on_Piece_game_over")
-	emit_signal("start_game")
 	
 	var parent = get_parent()
 	if parent.name.find("Board") >= 0:
@@ -379,6 +376,10 @@ func process_input(delta):
 		if Input.is_action_just_pressed("input_drop"):
 			
 			drop()
+
+func crash():
+	
+	$AnimatedSprite.play("explode")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

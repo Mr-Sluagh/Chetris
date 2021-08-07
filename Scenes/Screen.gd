@@ -55,6 +55,10 @@ func play():
 func pause():
 	var view = find_node("Viewport")
 	view.pause()
+	
+func end_game():
+	
+	$ViewportContainer/Viewport.end_game()
 
 func _on_Board_game_over():
 	emit_signal("game_over")
