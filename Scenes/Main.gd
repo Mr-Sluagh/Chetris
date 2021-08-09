@@ -198,12 +198,49 @@ func change_state(to):
 	
 			state = to
 			state_time = 0.0
+			say_nothing()
 		
 	else:
 		
 		print("Main: failed to change state from " + str(state) + " to " + str(to))
 		assert(permissive)
 
+func say_nothing():
+	
+	$Readout1.text = ""
+	$Readout2.text = ""
+	$Readout3.text = ""
+	$Screen.footer_say("")
+	$Screen.header_say("")
+		
+func say(where, what):
+	
+	match where:
+		
+		0:
+			
+			print(what)
+		
+		1:
+			
+			$Readout1.text = what
+			
+		2:
+			
+			$Readout2.text = what
+		
+		3:
+			
+			$Readout3.text = what
+			
+		4:
+			
+			$Screen.header_say(what)
+		
+		5:
+			
+			$Screen.footer_say(what)
+			
 func next_demo():
 	
 	change_state(State.DEMO)
@@ -240,6 +277,8 @@ func _ready():
 	$PlayPause.disabled = true
 	$PlayPause.pressed = false
 	$PlayPause.disabled = false
+	
+	say_nothing()
 
 func landed(id, score):
 	

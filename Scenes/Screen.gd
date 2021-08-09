@@ -17,6 +17,14 @@ func _ready():
 #func _process(delta):
 #	pass
 
+func header_say(text):
+	
+	$ViewportContainer/Viewport/Header.text = text
+
+func footer_say(text):
+	
+	$ViewportContainer/Viewport/Footer.text = text
+	
 func show_board():
 	
 	emit_signal("show_board")

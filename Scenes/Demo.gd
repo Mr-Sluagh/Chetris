@@ -20,13 +20,11 @@ var replay_glyph_0 :String= ""
 var replay_time :float= 0.0
 var replay_glyph_1 :String= ''
 var replay_action :String= ""
-var replay_say :String= ""
 
 var GLYPH_0_AT := '@'
 var GLYPH_0_AFTER := '+'
 var GLYPH_1_PRESS := '<'
 var GLYPH_1_RELEASE := '>'
-var GLYPH_1_SAY := '#'
 
 var actions := ['left', "right", "fall", "drop"]
 
@@ -167,26 +165,11 @@ func replay_process(delta)->void:
 		replay_glyph_0 = parts[0]	
 		replay_time = float(parts[1])
 		replay_glyph_1 = parts[2]
-		
-		match replay_glyph_1:
-		
-			GLYPH_1_PRESS, GLYPH_1_RELEASE:
-				
-				assert(len(parts) == 4)
-					
-			GLYPH_1_SAY:
-				
-				assert(len(parts) == 5)
-				
-			_:
-				
-				assert(false)
-			
 		replay_action = parts[3]
-		
-		if len(parts) == 5:
+	
+		for i in range(4, len(parts)):
 			
-			replay_say = parts[4]
+			replay_action += ' ' + parts[i]
 	
 	var now = false
 	
@@ -221,13 +204,15 @@ func replay_process(delta)->void:
 				print("Demo: released " + demo_action)
 				Input.action_release(demo_action)
 			
-			GLYPH_1_SAY:
-				
-				pass
-			
 			_:
 				
-				assert(false)
+				assert(replay_glyph_1.is_valid_integer())
+				
+				var where = int(replay_glyph_1)
+				
+				assert(where >= 0 and where <= 5)
+				
+				get_parent().say(where, replay_action)
 
 		replay_line = ""
 

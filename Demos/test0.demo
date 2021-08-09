@@ -1,17 +1,21 @@
 @ 6.43464 < right
++ 0.0 1 Hello World!
 @ 6.851307 > right
 @ 7.051307 < drop
 @ 7.151307 > drop
++ 0.0 4 Howdy
 @ 8.63464 < left
 @ 8.967973 > left
 @ 9.13464 < drop
 @ 9.23464 > drop
++ 0.0 2 How are you today?
 @ 10.469362 < left
 @ 11.086029 > left
 @ 11.519362 < drop
 @ 11.636029 > drop
 @ 12.586029 < right
 @ 13.036029 > right
++ 0.0 5 doody
 @ 13.502696 < drop
 @ 13.586029 > drop
 @ 15.319627 < fall
@@ -19,4 +23,5 @@
 @ 17.619628 < left
 @ 17.802961 > left
 @ 18.103172 < drop
++ 0.0 3 I'm fine, thanks.
 @ 18.219838 > drop

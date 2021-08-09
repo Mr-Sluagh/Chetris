@@ -134,7 +134,7 @@ __meta__ = {
 [node name="Demo" parent="." instance=ExtResource( 18 )]
 sequence = PoolStringArray( "res://Demos/test0.demo" )
 
-[node name="Readout" type="Label" parent="."]
+[node name="Readout1" type="Label" parent="."]
 margin_left = 46.1985
 margin_top = 2.22363
 margin_right = 262.198
@@ -142,7 +142,6 @@ margin_bottom = 20.2236
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0.34902, 0.34902, 1 )
 text = "000000000000000000"
-align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -155,7 +154,6 @@ margin_bottom = 37.2236
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0.34902, 0.34902, 1 )
 text = "000000000000000000"
-align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -168,7 +166,6 @@ margin_bottom = 54.2236
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0.34902, 0.34902, 1 )
 text = "000000000000000000"
-align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
