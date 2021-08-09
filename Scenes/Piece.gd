@@ -7,6 +7,8 @@ signal captured(score)
 
 var random = RandomNumberGenerator.new()
 var deck = "KQBNRPkqbnrp"
+var demo :bool= false
+var drop_down :bool= false
 export var id = ""
 export var column = -1
 export var row = -1
@@ -16,6 +18,11 @@ export var move_delay = 1.0 / 7.0
 export var move_delay_left = 0.0
 export var fall_delay = 1.0
 export var fall_delay_left = 1.0
+
+var LEFT := "input_left"
+var RIGHT := "input_right"
+var FALL := "input_fall"
+var DROP := "input_drop" 
 
 func drop():
 	
@@ -256,6 +263,19 @@ func game_over():
 
 func enter_board():
 	
+	var main = get_tree().get_root().get_node("Main")
+	
+	assert(main)
+	
+	if main.state == main.State.DEMO:
+		
+		print("in demo")
+		demo = true
+		LEFT = "demo_left"
+		RIGHT = "demo_right"
+		FALL = "demo_fall"
+		DROP = "demo_drop"
+	
 	var parent = get_parent()
 	
 	if place(column, row):
@@ -350,22 +370,40 @@ func process_input(delta):
 	
 	if move_delay_left:
 		
+		if false:
+		
+			if Input.is_action_pressed(LEFT):
+				
+				print("Piece: LEFT action failed")
+			
+			if Input.is_action_pressed(RIGHT):
+				
+				print("Piece: RIGHT action failed")
+			
+			if Input.is_action_pressed(FALL):
+				
+				print("Piece: FALL action failed")
+				
+			if Input.is_action_pressed(DROP):
+				
+				print("Piece: DROP action failed")
+				
 		move_delay_left -= delta
 		move_delay_left = max(move_delay_left, 0.0)
 		
 	else:
 		
-		if Input.is_action_pressed("input_left"):
+		if Input.is_action_pressed(LEFT):
 			
 			delay_move()
 			move(column - 1, row)
 			
-		if Input.is_action_pressed("input_right"):
+		if Input.is_action_pressed(RIGHT):
 			
 			delay_move()
 			move(column + 1, row)
 
-		if Input.is_action_pressed("input_fall"):
+		if Input.is_action_pressed(FALL):
 			
 			delay_move()
 			
@@ -373,9 +411,14 @@ func process_input(delta):
 				
 				land()
 		
-		if Input.is_action_just_pressed("input_drop"):
+		if Input.is_action_pressed(DROP) and not drop_down:
 			
 			drop()
+			drop_down = true
+			
+		else:
+			
+			drop_down = false
 
 func crash():
 	

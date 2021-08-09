@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scenes/Screen.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Main.gd" type="Script" id=2]
@@ -17,10 +17,16 @@
 [ext_resource path="res://Resources/res/w-bishop.png" type="Texture" id=15]
 [ext_resource path="res://Resources/res/w-queen.png" type="Texture" id=16]
 [ext_resource path="res://Resources/res/b-queen.png" type="Texture" id=17]
-[ext_resource path="res://Scenes/ArcadeScreenplay.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Demo.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Resources/fonts/ledfont-sharp-Regular.otf" type="DynamicFontData" id=19]
+
+[sub_resource type="DynamicFont" id=1]
+size = 15
+font_data = ExtResource( 19 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
+record = true
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 176.588, 273.291 )
@@ -105,8 +111,6 @@ texture = ExtResource( 14 )
 id = "r"
 key = Vector3( 1, 1, 1 )
 
-[node name="Screenplay" parent="." instance=ExtResource( 19 )]
-
 [node name="Off" type="Button" parent="."]
 margin_left = 8.02292
 margin_top = 20.7652
@@ -127,6 +131,48 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Demo" parent="." instance=ExtResource( 18 )]
+sequence = PoolStringArray( "res://Demos/test0.demo" )
+
+[node name="Readout" type="Label" parent="."]
+margin_left = 46.1985
+margin_top = 2.22363
+margin_right = 262.198
+margin_bottom = 20.2236
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.34902, 0.34902, 1 )
+text = "000000000000000000"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Readout2" type="Label" parent="."]
+margin_left = 46.1985
+margin_top = 19.2236
+margin_right = 262.198
+margin_bottom = 37.2236
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.34902, 0.34902, 1 )
+text = "000000000000000000"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Readout3" type="Label" parent="."]
+margin_left = 46.1985
+margin_top = 36.2236
+margin_right = 262.198
+margin_bottom = 54.2236
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 0.34902, 0.34902, 1 )
+text = "000000000000000000"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="game_over" from="Screen" to="." method="_on_Screen_game_over"]
 [connection signal="landed" from="Screen" to="." method="_on_Screen_landed"]
 [connection signal="resume" from="Screen" to="." method="_on_Screen_resume"]
@@ -135,3 +181,4 @@ __meta__ = {
 [connection signal="toggled" from="PlayPause" to="PlayPause" method="_on_PlayPause_toggled"]
 [connection signal="pressed" from="Off" to="." method="_on_Off_pressed"]
 [connection signal="pressed" from="Reset" to="." method="_on_Reset_pressed"]
+[connection signal="done" from="Demo" to="." method="_on_Demo_done"]

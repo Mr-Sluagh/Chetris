@@ -2,5 +2,5 @@
 
 [ext_resource path="res://Scenes/Demo.gd" type="Script" id=1]
 
-[node name="Screenplay" type="Node"]
+[node name="Demo" type="Node"]
 script = ExtResource( 1 )
