@@ -19,11 +19,11 @@ func _ready():
 
 func header_say(text):
 	
-	$ViewportContainer/Viewport/Header.text = text
+	$ViewportContainer/Viewport/OnScreen/Header.text = text
 
 func footer_say(text):
 	
-	$ViewportContainer/Viewport/Footer.text = text
+	$ViewportContainer/Viewport/OnScreen/Footer.text = text
 	
 func show_board():
 	
@@ -77,7 +77,7 @@ func _on_Viewport_resume():
 
 func draft(id, column):
 	
-	$ViewportContainer/Viewport/Board.draft(id, column)
+	$ViewportContainer/Viewport/OnScreen/Board.draft(id, column)
 
 func _on_Board_landed(id, score):
 	

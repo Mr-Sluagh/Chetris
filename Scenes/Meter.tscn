@@ -12,7 +12,7 @@ font_data = ExtResource( 1 )
 size = 18
 font_data = ExtResource( 3 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Meter" type="Node2D"]
 position = Vector2( 75.4185, 8.67645 )
 script = ExtResource( 2 )
 __meta__ = {

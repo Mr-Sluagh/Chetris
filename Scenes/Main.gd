@@ -210,8 +210,8 @@ func say_nothing():
 	$Readout1.text = ""
 	$Readout2.text = ""
 	$Readout3.text = ""
-	$Screen.header_say("!?!?!?!?!?!?!?!?")
-	$Screen.footer_say("!?!?!?!?!?!?!?!?")
+	$Screen.header_say("")
+	$Screen.footer_say("")
 		
 func say(where, what):
 	
