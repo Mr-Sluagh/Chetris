@@ -21,9 +21,9 @@ __meta__ = {
 
 [node name="Name" type="Label" parent="."]
 margin_left = -132.0
-margin_top = -33.0
+margin_top = -31.0
 margin_right = -67.0
-margin_bottom = -10.0
+margin_bottom = -8.0
 custom_fonts/font = SubResource( 1 )
 text = "[name]"
 __meta__ = {
@@ -32,9 +32,9 @@ __meta__ = {
 
 [node name="Readout" type="Label" parent="."]
 margin_left = -132.0
-margin_top = -4.0
+margin_top = -9.0
 margin_right = -20.0
-margin_bottom = 19.0
+margin_bottom = 14.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0.34902, 0.34902, 1 )
 text = "00000000"

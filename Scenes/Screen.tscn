@@ -30,16 +30,8 @@ texture = ExtResource( 3 )
 [node name="Board" parent="ViewportContainer/Viewport" instance=ExtResource( 1 )]
 position = Vector2( 150, 150 )
 
-[node name="Header" type="Label" parent="ViewportContainer/Viewport"]
-margin_right = 40.0
-margin_bottom = 14.0
-
 [node name="Title" parent="ViewportContainer/Viewport" instance=ExtResource( 4 )]
-
-[node name="Footer" type="Label" parent="ViewportContainer/Viewport"]
-margin_right = 40.0
-margin_bottom = 14.0
-text = "00000"
+valign = 1
 
 [connection signal="show_board" from="." to="ViewportContainer/Viewport" method="_on_Screen_show_board"]
 [connection signal="show_title" from="." to="ViewportContainer/Viewport" method="_on_Screen_show_title"]
