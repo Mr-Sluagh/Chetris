@@ -31,8 +31,6 @@ var actions := ['left', "right", "fall", "drop"]
 var last_time = -1.0
 var time = -1.0
 
-var demos = ["test.demo"]
-
 func play_sequence(next):
 
 	stop_replaying()
@@ -41,7 +39,7 @@ func play_sequence(next):
 		
 		sequence_index = 0
 		
-	if sequence_index >= len(sequence):
+	if sequence_index >= len(sequence) or sequence_index < 0:
 		
 		emit_signal("done")
 		sequence_index = 0
@@ -51,15 +49,16 @@ func play_sequence(next):
 	start_replaying()
 	return true
 	
-func play_next():
+func play_next(direction = 1):
 	
 	var parent = get_parent()
-	sequence_index += 1
+	sequence_index += direction
 	parent.next_demo()
 
 func start_replaying()->void:
 	
 	assert(replay_file.file_exists(replay_filename))	
+	
 	print("Demo.start_replaying()")	
 	
 	replay_file.open(replay_filename, File.READ)
@@ -230,6 +229,14 @@ func _process(delta):
 	if replay:
 		
 		replay_process(delta)
+		
+	if Input.is_action_just_pressed("input_left"):
+		
+		play_next(-1)
+		
+	elif Input.is_action_just_pressed("input_right"):
+		
+		play_next(1)
 		
 func _exit_tree():
 	

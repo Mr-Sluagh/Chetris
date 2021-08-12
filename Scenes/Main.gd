@@ -123,6 +123,7 @@ func to_demo():
 	
 	if $Demo.play_sequence(next):
 		
+		begin = true
 		run_game()
 	
 	return true
@@ -210,6 +211,7 @@ func say_nothing():
 	$Readout1.text = ""
 	$Readout2.text = ""
 	$Readout3.text = ""
+	$Readout4.text = ""
 	$Screen.header_say("")
 	$Screen.footer_say("")
 		
@@ -232,12 +234,16 @@ func say(where, what):
 		3:
 			
 			$Readout3.text = what
-			
+		
 		4:
+			
+			$Readout4.text = what
+		
+		5:
 			
 			$Screen.header_say(what)
 		
-		5:
+		6:
 			
 			$Screen.footer_say(what)
 			

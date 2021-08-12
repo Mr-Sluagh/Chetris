@@ -68,7 +68,7 @@ func end_game():
 	
 	$ViewportContainer/Viewport.end_game()
 
-func _on_Board_game_over():
+func _on_OnScreen_game_over():
 	emit_signal("game_over")
 
 func _on_Viewport_resume():
@@ -79,6 +79,6 @@ func draft(id, column):
 	
 	$ViewportContainer/Viewport/OnScreen/Board.draft(id, column)
 
-func _on_Board_landed(id, score):
+func _on_OnScreen_landed(id, score):
 	
 	emit_signal("landed", id, score)

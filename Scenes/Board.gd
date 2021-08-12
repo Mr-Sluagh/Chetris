@@ -48,7 +48,8 @@ func landed(id, score):
 		else:
 			
 			white_count += 1
-			
+	
+	print("Board.landed()")
 	emit_signal("landed", id, score)
 
 func queue_draft(id, delay):

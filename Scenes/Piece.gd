@@ -219,11 +219,11 @@ func promote():
 		
 		if not row:
 			
-			id = to
+			id = to.to_upper()
 			
 	elif row == 7:
 		
-		id = to
+		id = to.to_lower()
 			
 	$AnimatedSprite.init(id)
 

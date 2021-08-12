@@ -112,9 +112,9 @@ id = "r"
 key = Vector3( 1, 1, 1 )
 
 [node name="Off" type="Button" parent="."]
-margin_left = 8.02292
+margin_left = 7.02292
 margin_top = 20.7652
-margin_right = 45.0229
+margin_right = 44.0229
 margin_bottom = 40.7652
 text = "OFF"
 __meta__ = {
@@ -132,7 +132,7 @@ __meta__ = {
 }
 
 [node name="Demo" parent="." instance=ExtResource( 18 )]
-sequence = PoolStringArray( "res://Demos/test0.demo" )
+sequence = PoolStringArray( "res://Demos/test0.demo", "res://Demos/test1.demo" )
 
 [node name="Readout1" type="Label" parent="."]
 margin_left = 46.1985
